@@ -2,9 +2,9 @@
 * @Author: Marte
 * @Date:   2018-08-19 23:15:34
 * @Last Modified by:   Marte
-* @Last Modified time: 2018-08-20 09:13:32
+* @Last Modified time: 2018-08-20 18:41:54
 */
-#top{width: 99%;
+#top{
     height: 80px;
     border-bottom: solid 2px #F5F5F5;
     margin: 5px auto 0 auto;}
@@ -13,13 +13,27 @@
 #mian{height:68px;}
 #main .containe{height:680px;position:relative;}
 #box{width:860px;height:530px;position: absolute; left:0;top:0;bottom:0;right:0;margin:auto;border:10px solid #ccc;padding:15px 10px;}
-.box_l{width:600px;height:520px;background-color: pink;position:relative;}
-.box_r{width:220px;height:520px;background-color: green;}
+.box_l{width:600px;height:520px;position:relative;}
+.box_r{width:220px;height:520px;}
 .title{height:40px;line-height: 40px;font-size: 16px;border-bottom: 1px solid #ccc;color:#ccc;padding-left:66px;}
-.u{width:400px;height:200px;background-color:red;position: absolute; left:0;top:0;bottom:0;right:0;margin:auto;}
-.u>div{margin-top:10px;}
-.u span{display:block;width:104px; float:left;}
-.u input{height:28px; float:left;}
-input:nth-of-type(1){width:290px;}
-#check{width:104px;}
-#sb{width:300px;margin-left:50px;}
+.u{width:400px;height:200px;position: absolute; left:0;top:0;bottom:0;right:0;margin:auto;}
+.u>div{margin-top:15px;}
+.u span{display:block;width:104px; float:left;background-color: #ccc;padding-left:10px;}
+.u input{height:40px; float:left;}
+input:nth-of-type(1){width:283px;}
+#check{width:20px;height:20px;margin-left:40px;}
+#btn{width:300px;margin-left:50px;background-color: #E60012;border:0 none;font-size: 20px;}
+.border{border:1px solid #ccc;height:40px;width:400px;line-height: 40px;position:relative;}
+.border input{border:0 none;}
+.box_r{padding-top:30px;}
+#box_r  span{color:black;}
+.ck{width:244px;height:35px;background-color: #ccc;position:absolute;left:159px;top:42px;}
+.box_r div{margin-top:10px;padding-left:50px;color:#ccc;}
+#bottom{height:173px;background-color:black;}
+#bottom .containe{height:173px;text-align: center;color:#fff;padding-top:10px;}
+#bottom p{padding-top:5px;}
+#bottom img{display:block;float:left;margin:0 5px;}
+#bottom a{color:#fff;}
+.lp{padding-left:316px;}
+.f2a{background-color:#CFEEFA;}
+.f2b{background-color:#E2F5FD;}

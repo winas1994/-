@@ -2,7 +2,7 @@
 * @Author: Marte
 * @Date:   2018-08-18 20:14:54
 * @Last Modified by:   Marte
-* @Last Modified time: 2018-08-19 20:13:38
+* @Last Modified time: 2018-08-20 16:34:29
 */
 
 document.addEventListener('DOMContentLoaded',function () {
@@ -227,6 +227,82 @@ var data2=[{
         render2();
         function render2(){
             goodslist2.innerHTML = data2.map(function(item){
+                return `<li data-guid="${item.id}">
+                    <a href="#" class="img"><img src="${item.imgurl}" alt="" /></a>
+                    <p><a href="#">${item.title}</a>
+                    <p><a href="#">${item.numb}</a>
+                    <p><a href="#"><span>${item.price}</span></a>
+                </li>`
+            }).join(''); 
+
+} 
+
+var data3=[{
+        id:'11',
+        imgurl:'img/y1.jpg@240w_240h',
+        title:'进然牌东北椴树结晶蜜秒杀组',
+        numb:'货号121243',
+        price:'¥199.00' 
+    },{
+        id:'22',
+        imgurl:'img/y2.jpg@240w_240h',
+        title:'进然牌东北椴树结晶蜜秒杀组',
+        numb:'货号121243',
+        price:'¥199.00' 
+    },{
+        id:'33',
+        imgurl:'img/y3.jpg@240w_240h',
+        title:'进然牌东北椴树结晶蜜秒杀组',
+        numb:'货号121243',
+        price:'¥199.00' 
+    },{
+        id:'44',
+        imgurl:'img/y4.jpg@240w_240h',
+        title:'进然牌东北椴树结晶蜜秒杀组',
+        numb:'货号121243',
+        price:'¥199.00' 
+    },{
+        id:'55',
+        imgurl:'img/y5.jpg@240w_240h',
+        title:'进然牌东北椴树结晶蜜秒杀组',
+        numb:'货号121243',
+        price:'¥199.00' 
+    },{
+        id:'66',
+        imgurl:'img/y6.jpg@240w_240h',
+        title:'进然牌东北椴树结晶蜜秒杀组',
+        numb:'货号121243',
+        price:'¥199.00' 
+    },{
+        id:'77',
+        imgurl:'img/y7.jpg@240w_240h',
+        title:'进然牌东北椴树结晶蜜秒杀组',
+        numb:'货号121243',
+        price:'¥199.00' 
+    },{
+        id:'88',
+        imgurl:'img/y8.jpg@240w_240h',
+        title:'进然牌东北椴树结晶蜜秒杀组',
+        numb:'货号121243',
+        price:'¥199.00' 
+    },{
+        id:'99',
+        imgurl:'img/y9.jpg@240w_240h',
+        title:'进然牌东北椴树结晶蜜秒杀组',
+        numb:'货号121243',
+        price:'¥199.00' 
+    },{
+        id:'100',
+        imgurl:'img/y10.jpg@240w_240h',
+        title:'进然牌东北椴树结晶蜜秒杀组',
+        numb:'货号121243',
+        price:'¥199.00' 
+    }];
+   var goodslist3 = document.querySelector('.goodslist3')
+        // 商品写入页面
+        render3();
+        function render3(){
+            goodslist3.innerHTML = data3.map(function(item){
                 return `<li data-guid="${item.id}">
                     <a href="#" class="img"><img src="${item.imgurl}" alt="" /></a>
                     <p><a href="#">${item.title}</a>

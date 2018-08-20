@@ -2,7 +2,7 @@
 * @Author: Marte
 * @Date:   2018-08-18 19:07:26
 * @Last Modified by:   Marte
-* @Last Modified time: 2018-08-18 20:02:01
+* @Last Modified time: 2018-08-20 16:13:00
 */           
 document.addEventListener('DOMContentLoaded',()=>{
             
@@ -204,6 +204,40 @@ document.addEventListener('DOMContentLoaded',()=>{
                 ele:'.carouse2',
                 imgs:["img/j5.jpg","img/j6.jpg","img/j7.jpg","img/j8.jpg"]
                
-             })
+             });
+              new carouse({
+                ele:'.carouse3',
+                imgs:["img/j7.jpg","img/j2.jpg","img/j3.jpg","img/j5.jpg"]
+               
+             });
+              new carouse({
+                ele:'.carouse4',
+                imgs:["img/j5.jpg","img/j6.jpg","img/j7.jpg","img/j8.jpg"]
+               
+             });
+              new carouse({
+                ele:'.carouse5',
+                imgs:["img/j7.jpg","img/j2.jpg","img/j3.jpg","img/j5.jpg"]
+               
+             });
+              new carouse({
+                ele:'.carouse6',
+                imgs:["img/j5.jpg","img/j6.jpg","img/j7.jpg","img/j8.jpg"]
+               
+             });
+              new carouse({
+                ele:'.carouse7',
+                width:439,
+                height:236,
+                imgs:["img/shil.jpg","img/shl1.jpg","img/shl2.jpg","img/shl3.jpg","img/shl5.jpg",]
+               
+             });
+              new carouse({
+                width:439,
+                height:236,
+                ele:'.carouse8',
+                imgs:["img/j5.jpg","img/j6.jpg","img/j7.jpg","img/j8.jpg"]
+               
+             });
         });
             
