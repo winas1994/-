@@ -1,0 +1,25 @@
+/* 
+* @Author: Marte
+* @Date:   2018-08-19 23:15:34
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-08-20 09:13:32
+*/
+#top{width: 99%;
+    height: 80px;
+    border-bottom: solid 2px #F5F5F5;
+    margin: 5px auto 0 auto;}
+#top .containe{height:80px;}
+.bt_login{padding-top:50px;font-size: 14px;padding-right:30px;}
+#mian{height:68px;}
+#main .containe{height:680px;position:relative;}
+#box{width:860px;height:530px;position: absolute; left:0;top:0;bottom:0;right:0;margin:auto;border:10px solid #ccc;padding:15px 10px;}
+.box_l{width:600px;height:520px;background-color: pink;position:relative;}
+.box_r{width:220px;height:520px;background-color: green;}
+.title{height:40px;line-height: 40px;font-size: 16px;border-bottom: 1px solid #ccc;color:#ccc;padding-left:66px;}
+.u{width:400px;height:200px;background-color:red;position: absolute; left:0;top:0;bottom:0;right:0;margin:auto;}
+.u>div{margin-top:10px;}
+.u span{display:block;width:104px; float:left;}
+.u input{height:28px; float:left;}
+input:nth-of-type(1){width:290px;}
+#check{width:104px;}
+#sb{width:300px;margin-left:50px;}
