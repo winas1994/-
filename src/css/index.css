@@ -2,9 +2,16 @@
 * @Author: Marte
 * @Date:   2018-08-17 19:49:51
 * @Last Modified by:   Marte
+<<<<<<< HEAD
 * @Last Modified time: 2018-08-21 20:18:40
 */
 #top{height:39px;background-color:#f6f6f6;color:#777;border-bottom:1px solid #E5E5E5;line-height: 39px;font-size: 14px;text-align: center;z-index: 999;position:relative;z-index: 9999;}
+=======
+* @Last Modified time: 2018-08-20 16:38:15
+*/
+body{background-color:#F2F2F2 ;}
+#top{height:39px;background-color:#f6f6f6;color:#777;border-bottom:1px solid #E5E5E5;line-height: 39px;font-size: 14px;text-align: center;z-index: 999;position:relative;}
+>>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
 #my .u0>li{float:left;}
 .l1,.l2,.l3{position:relative;}
 .u1,.u2,.u3{background-color: #fff;position: absolute;left:0;top:39px;border:1px solid #ccc;border-top:none;}
@@ -26,7 +33,11 @@
 #resign span,#my span{border-right:1px solid #ccc;padding-right:20px;}
 #logo{height:109px;}
 #search{width:550px;height:82px;margin-top:27px;margin-left:125px;}
+<<<<<<< HEAD
 #mall{margin-top:27px;width:212px;height:82px;}
+=======
+#mall{margin-top:27px;width:252px;height:82px;}
+>>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
 #logo .input-group{width:550px;height:36px;border:1px solid #F8F8F8;}
 #baobei{background-color:#F8F8F8;}
 #sousuo{background-color:#F15C18;}
@@ -35,6 +46,7 @@
 #hot a{display:block;color:#ccc;}
 #hot span{border-right:1px solid #ccc;padding-right:5px;}
 #mall a{color:black;}
+<<<<<<< HEAD
 #mall li{height:36px;border:1px solid #ccc;float:left;font-size: 16px;border:1px solid #F0F0F0;}
 #mymall{width:224px;position:absolute;right:281px;top:103px;z-index: 999;text-align: center;background-color: #fff;}
 #mymall li{margin-left:30px;border:0 none;}
@@ -61,6 +73,9 @@
     }
 .car:hover #car{display:block;}
 #car_t{height:50px;border-bottom:1px solid #ccc;}
+=======
+#mall li{height:36px;border:1px solid #ccc;float:left;margin-left:10px;line-height: 36px;font-size: 16px;border:1px solid #F0F0F0;}
+>>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
 #nav{height:41px;line-height: 41px;font-size: 16px;text-align: center;border-bottom:1px solid red;}
 #nav .all{width:172px;height:41px;background-color:#F15C18;color:#fff;}
 #nav span{color:#F15C18;}

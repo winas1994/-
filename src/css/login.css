@@ -2,7 +2,11 @@
 * @Author: Marte
 * @Date:   2018-08-20 18:42:33
 * @Last Modified by:   Marte
+<<<<<<< HEAD
 * @Last Modified time: 2018-08-21 20:57:12
+=======
+* @Last Modified time: 2018-08-20 20:10:07
+>>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
 */
 #top{
     height: 80px;
@@ -16,9 +20,14 @@
 #center .right{width:518px;height:455px;padding-left:30px;background-color: #fff;padding-top:50px;}
 #center span{height:57px;line-height: 57px;font-size: 16px;}
 #a{width:85px; height:57px;line-height: 57px;font-size: 16px;}
+<<<<<<< HEAD
 
 .right>div{width:390px;height:57px;border:1px solid #ccc;padding-left: 46px;}
 #code{width:135px;height:57px;background-color: #ccc;line-height: 57px;text-align: center;}
+=======
+.right>div{width:390px;height:57px;border:1px solid #ccc;padding-left: 46px;}
+#code{width:135px;height:57px;background-color: #ccc;}
+>>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
 #yz{width:170px;}
 .right span{display:block;width:85px;float:left;}
 .border input{display:block;width:300px;height:57px;border:0 none;}
