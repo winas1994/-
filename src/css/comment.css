@@ -1,0 +1,22 @@
+/* 
+* @Author: Marte
+* @Date:   2018-08-17 19:50:36
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-08-21 12:48:09
+*/
+*{margin:0;padding:0;}
+.containe{width:1200px;margin:0 auto;}
+li{list-style: none;}
+.fl{float:left;}
+.fr{float:right;}
+.overflow{overflow:hidden;}
+.red{color:#F15C18;}
+.blue{color:blue;}
+.black{color:black;}
+.none{display:none;}
+img{display:block;}
+.ccc{background-color:#ccc;}
+
+
+
+
