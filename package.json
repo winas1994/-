@@ -1,0 +1,25 @@
+{
+  "name": "yg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/winas1994/-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/winas1994/-/issues"
+  },
+  "homepage": "https://github.com/winas1994/-#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "node-sass": "^4.9.3"
+  },
+  "dependencies": {},
+  "description": ""
+}

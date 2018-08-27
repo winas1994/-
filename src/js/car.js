@@ -1,135 +1,235 @@
+/* 
+* @Author: Marte
+* @Date:   2018-08-21 16:30:38
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-08-27 11:49:50
+*/
+//读取cookie
+//删除cookie
 
-              
-        jQuery(function($){
-          
-            var Car = {
-                goodslist:[],
-                totalPrice:0,
-                ele:'#goods',
-
-
-                init(){
-                    this.ele = $(this.ele);
-
-                    // 删除单个商品
-                    this.ele.on('click','.btn-close',(e)=>{
-                        // 获取当前li
-                        let $currentLi = $(e.target).closest('li');
-                        let idx = $currentLi.index();
-
-                        this.remove(idx);
-                    });
-                },
-
-                // 添加商品
-                add(idx){
-                    let $currentLi = $('.goodslist li').eq(idx);
-                    let $currentImg =  $currentLi.children('a').children('img');
-                    
-
-                    // 获取图片路径
-                    let imgurl = $currentImg.attr('src');
-                    let price = $currentLi.children('p').eq(0).text();
-
-                    let title2 = $currentLi.children('p').eq(2).text();
-
-                    this.currentImg = $currentImg;
-                
-                    this.goodslist.push({
-                        imgurl:imgurl,
-                        title2:title2,
-                        price:price
-                        
-                    });
-
-                    // 动画完成后渲染
-                    this.animate(imgurl,()=>{
-                        this.render();
-                    })
-
-                    
-
-                },
-                remove(idx){
-                    this.goodslist.splice(idx,1);
-
-                     this.render();
-                },
-
-                // 清空
-                clear(){
-                    this.goodslist = [];
-
-                    this.render();
-                },
-
-                // 渲染数据到页面
-                render(){
-                    // 生成html结构
-                    let content = this.goodslist.map((item,idx)=>{
-                        return `<li>
-                                <img src="${item.imgurl}" />
-                                <span class="red tl fl">${item.title2}</span>
-                                数量：<span class="myqty">0</span>
-                                <span class="red tr fr">${item.price}</span>
-                                <span class="btn-close">删除</span>
-                        </li>`
-                    }).join('');
-
-                    // 写入页面
-                    this.ele.html(content);
-                },
-
-                // 动画
-                animate(imgurl,callback){
-                    // 创建以imgurl为地址的图片
-                    let $copyImg = $('<img/>').attr({src:imgurl});
-
-                    // 设置图片样式
-                    $copyImg.css({
-                        position:'absolute',
-                        left:this.currentImg.offset().left,
-                        top:this.currentImg.offset().top,
-                        width:this.currentImg.width()
-                    });
-
-                    $copyImg.animate({
-                        left:-this.ele.offset().left,
-                        top:this.ele.offset().top+this.ele.outerHeight(),
-                        width:100
-                    },function(){
-                        callback();
-
-                        // 移除复制的图片
-                        $copyImg.remove();
-                    });
-
-                    // $('body').append($copyImg);
-                    $copyImg.appendTo('body');
-                }
+document.addEventListener('DOMContentLoaded',function () {
+    //读取cookie
+    var goodslist = Cookie.get('goodslist');
+    console.log(goodslist)
+     if(goodslist.length<=0){
+            goodslist = [];
+        }else{
+            goodslist = JSON.parse(goodslist);
+            console.log(goodslist);  
             }
 
-            Car.init();
-            
+            //遍历goodslist
+    function rand(){
+         var tbody = document.querySelector('tbody');
+     tbody.innerHTML=goodslist.map(function(item,idx){
+                return `<tr>
+        <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+        <td class="goods"><img src="${goodslist[idx].imgurl}" alt="" class="img" /><span class="otitle1">${goodslist[idx].title1}</span></td>
+        <td class="price">${goodslist[idx].price}</td>
+        <td class="count">
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="0"/>
+            <span class="add">+</span></td>
+        <td class="subtotal">0.00</td>
+        <td class="operation"><span class="delete">删除</span></td>
+    </tr>`
+            }).join('');
+  
+        }
+    
+       rand();
 
-             // 绑定事件
-             // 实现添加到购物车的效果
-             $('.goodslist').on('click','.btn_add',function(a,b){
-                // 获取当前li
-                let $currentLi = $(this).closest('li');
+    if(!document.getElementsByClassName){
+        document.getElementsByClassNamefunction=function(name){
+            var doms=document.getElementsByTagName("*");
+            var arr=[];
+            for(var i=0;i<doms.length;i++){
+                var txt=doms[i].className.split(" ");
+                for(j=0;j<txt.length;j++){
+                    if(txt[j]==name){
+                        arr.push(doms[i]);
+                    }
+                }
+            }
+            return arr;
+        }
+    }
+    var cartTable=document.getElementById('cartTable');
+    var tr=cartTable.children[1].rows;//获得表格中的行，.rows是表格特有的属性
+    var checkInputs=document.getElementsByClassName('check');
+    var checkAllInputs=document.getElementsByClassName('check-all');
+    var selectedTotal=document.getElementById('selectedTotal');
+    var priceTotal=document.getElementById('priceTotal');
+    var selected=document.getElementById('selected');
+    var foot=document.getElementById('foot');
+    var selectedViewList=document.getElementById('selectedViewList');
+    var deleteAll=document.getElementById('deleteAll');
 
-                // 获取商品名称
-                // let name = $currentLi.children('p').eq(1).text();
-                // 获取图片路径
-                // let imgurl = $currentLi.children('img').attr('src');
+    //更新总数和总价格，已选浮层
+    function getTotal(){
+        var selected=0;//累计“数量”
+        var price=0;//累计小计
+        var HTMLstr='';
+        for(var i= 0,len=tr.length;i<len;i++){
+            //如果最前面的多选框被选中的话
+            if(tr[i].getElementsByTagName('input')[0].checked){
+                tr[i].className='on';//选中的行颜色变深
+                selected +=parseInt(tr[i].getElementsByTagName('input')[1].value);//数量
+                price +=parseFloat(tr[i].cells[4].innerHTML);//获得当前行的“小计”的值
+                //如果商品被选中则会在最下面的弹出层显示
+                HTMLstr+='<div><img src="'+tr[i].getElementsByTagName('img')[0].src+'"><span class="del" index="'+i+'">取消选择</span></div>';// 添加图片到弹出层已选商品列表容器
+             }else{
+                tr[i].className='';
+            }
+        }
+        selectedTotal.innerHTML=selected;
+        priceTotal.innerHTML=price.toFixed(2);
+        selectedViewList.innerHTML=HTMLstr;
+        if(selected==0){
+            foot.className='foot';//如果没选择商品，则下面那个栏不显示
+        }
+    }
+    /*判断多选框是否选中部分*/
+    for(var i= 0,len=checkInputs.length;i<len;i++){
+        checkInputs[i].onclick=function(){
+            //如果点击‘全选’则其它多选框都与‘全选’框的checked一样（选中或不选中）
+            if(this.className=='check-all check'){
+                for(var j=0;j<checkInputs.length;j++){
+                    checkInputs[j].checked=this.checked;
+                }
+            }
+            //如果其中某个多选框未被选中，则两个‘全选’框都要撤销选中状态
+            if(this.checked==false){
+                for(var k=0;k<checkAllInputs.length;k++){
+                    checkAllInputs[k].checked=false;
+                }
+            }
+            //当一个一个点击全部单选框后，‘全选’按钮被选中
+            var flag=true;
+            for(var k=1;k<checkInputs.length-1;k++){
+                if(!checkInputs[k].checked){
+                    flag=false;
+                }
+            }
+            if(flag){
+                for (var i = 0; i < checkAllInputs.length; i++) {
+                    checkAllInputs[i].checked=true;
+                };
+            }
+            getTotal();
+        }
+    };
+    //切换显示已选商品弹层
+    selected.onclick=function(){
+        if(selectedTotal.innerHTML!=0){
+            foot.className=(foot.className=='foot'?'foot show':'foot');
+        }
+    };
+    //已选商品弹层中的取消选择按钮
+    selectedViewList.onclick=function(e){
+        var e=e || window.event;
+        var el= e.srcElement;//srcElement会获得当前点击的对象，如是图片还是span标签
+        if(el.className=='del'){
+            var input=tr[el.getAttribute('index')].getElementsByTagName('input')[0];//获得当前被点击的行的第一列的input标签，再让其设为false，即不被选择上
+            input.checked=false;
+            input.onclick();//调用它便可实现在弹出层是否显示该商品
+        }
+    }
+    //计算单行价格；小计
+    function getSubTotal(tr){
+        var tds=tr.cells;
+        var price=parseFloat(tds[2].innerHTML);//单价
+        var count=parseInt(tr.getElementsByTagName('input')[1].value);//数量
+        var SubTotal=parseFloat(price*count);
+        tds[4].innerHTML=SubTotal.toFixed(2);
+        //小计处赋值
+        /*subtotal.innerHTML=(parseInt(countInput.value)*parseFloat(price.innerHTML)).toFixed(2);
+        //如果数目只有一个，把－号去掉
+        if(countInput.value==1){
+            span.innerHTML='';
+        }else{
+            span.innerHTML='-';
+        }*/
+    }
+    //加减号那部分
+    for(var i=0;i<tr.length;i++){
+        tr[i].onclick=function(e){
+            e=e || window.event;
+            var el= e.srcElement;//事件代理机制，给父元素tr加点击事件，用e.srcElement可得到具体哪个被点击
+            var cls=el.className;
+            var input=this.getElementsByTagName('input')[1];
+            var val=parseInt(input.value);
+            var reduce=this.getElementsByTagName('span')[1];
+            switch (cls){
+                case 'add':
+                    input.value=val+1;
+                    reduce.innerHTML='-';//加后要显示出减号
+                    getSubTotal(this);
+                    break;
+                case 'reduce':
+                    if(val>1){
+                        input.value=val-1;
+                    }
+                    if(input.value<=1){
+                        reduce.innerHTML='';//小于1则把减号隐藏
+                    }
+                    getSubTotal(this);
+                    break;
+                case 'delete':
+                    var conf=confirm('确定要删除吗？');
+                    if(conf){
+                        this.parentNode.removeChild(this);//tr的父结点为tabale，然后再把自己传给remove
 
-                Car.add($currentLi.index());
-                    console.log($('.myqty').text());
+                        for(var i=0;i<goodslist.length;i++){
+                        if(goodslist[i].id === this.id){
+                        goodslist.splice(i,1);
+                        break;
+                    }
+                }
+                   // 重写cookie
+                  Cookie.set('goodslist',JSON.stringify(goodslist));
+                    }
+                default :
+                    break;
+            }
+            getTotal();
+        }
+        //加减处的键盘事件进行加减
+        tr[i].getElementsByTagName('input')[1].onkeyup=function(){
+            var val=parseInt(this.value);
+            var tr=this.parentNode.parentNode;//td,tr
+            var reduce=tr.getElementsByTagName('span')[1];
+            if(isNaN(val) || val<1){
+                val=1;//如果文本框中不是个数或输入的数小于1则让它为1
+            }
+            this.value=val;
+            if(val<=1){
+                reduce.innerHTML='';//如果值小于1则减号隐藏
+            }else{
+                reduce.innerHTML='-';
+            }
+            getSubTotal(tr);
+            getTotal();//求总计
+        }
+    };
+    //删除全部
+    deleteAll.onclick=function(){
+        if(selectedTotal.innerHTML !='0'){//如果有选中的多选框才能有弹出框
+            var conf=confirm('确定删除全部吗？');
+            if(conf){
+                for(var i=0;i<tr.length;i++){
+                    var input=tr[i].getElementsByTagName('input')[0];
+                    if(input.checked){
+                        tr[i].parentNode.removeChild(tr[i]);
+                        i--;//删除后数组中自动向前移，i也会++，便会漏掉，所以让i不增加
+                    }
+                }
+                getTotal();
+            }
+        }
+    }
+    //刚进来页面要让所有商品被选中
+    // checkAllInputs[0].checked=true;//即让‘全部’按钮被选中
+    // checkAllInputs[0].onclick();
 
-           
-
-             });
-             
-            
-        });
-         
+});

@@ -3,7 +3,7 @@
 * @Date:   2018-08-18 19:07:26
 * @Last Modified by:   Marte
 <<<<<<< HEAD
-* @Last Modified time: 2018-08-20 22:24:16
+* @Last Modified time: 2018-08-24 17:54:46
 =======
 * @Last Modified time: 2018-08-20 16:13:00
 >>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
@@ -195,12 +195,8 @@ document.addEventListener('DOMContentLoaded',()=>{
             // 停止
             carouse.prototype.stop = function(){
                 clearInterval(this.timer);
-<<<<<<< HEAD
             };
-=======
-            }
->>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
-
+            
             
 
              new carouse({
@@ -247,7 +243,6 @@ document.addEventListener('DOMContentLoaded',()=>{
                 imgs:["img/j5.jpg","img/j6.jpg","img/j7.jpg","img/j8.jpg"]
                
              });
-<<<<<<< HEAD
               new carouse({
                 width:439,
                 height:236,
@@ -255,7 +250,6 @@ document.addEventListener('DOMContentLoaded',()=>{
                 imgs:["img/j5.jpg","img/j6.jpg","img/j7.jpg","img/j8.jpg"]
                
              });
-=======
->>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
+
         });
             

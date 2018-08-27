@@ -3,7 +3,7 @@
 * @Date:   2018-08-20 17:17:22
 * @Last Modified by:   Marte
 <<<<<<< HEAD
-* @Last Modified time: 2018-08-23 14:53:33
+* @Last Modified time: 2018-08-27 11:37:25
 =======
 * @Last Modified time: 2018-08-20 17:59:14
 >>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
@@ -11,7 +11,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
 
  //获取元素
-<<<<<<< HEAD
             
             var btn = document.querySelector('#btn');
             var ck = document.querySelector('.ck');
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded',()=>{
             // //判断用户名与密码非空
             // btn.onclick = function(e){
             //     e = e || window.event;
-=======
             var user = document.querySelector('.user');
             var psw = document.querySelector('.pwd');
             var code = document.querySelector('.code');
@@ -51,7 +49,6 @@ document.addEventListener('DOMContentLoaded',()=>{
             //判断用户名与密码非空
             btn.onclick = function(e){
                 e = e || window.event;
->>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
 
         /*
             电子邮件
@@ -62,7 +59,6 @@ document.addEventListener('DOMContentLoaded',()=>{
                 x.x@laoxie.com
                 邮箱用户名必须3-30个字符
          */
-<<<<<<< HEAD
         btn.onclick=function(e){
 
 
@@ -125,7 +121,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
 
 
-=======
         if(!/^[a-z0-9][\w\-\.]{2,29}@[a-z0-9\-]{2,67}(\.[a-z\u2E80-\u9FFF]{2,6})+$/.test(user)){
             ck.innHTML='邮箱格式不合法';
             return false;
@@ -220,7 +215,6 @@ document.addEventListener('DOMContentLoaded',()=>{
             // }
 
             //     vcode.onclick = randomCode;
->>>>>>> f1d6ea4cc8f020c6d44c4a31961c49bca5747a10
 
 
 });

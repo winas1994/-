@@ -9,6 +9,23 @@
 jQuery(function($){
             // 插件是否支持链式调用
 
+
+
+             var params = location.search; //str
+		   		params = params.slice(1); //去掉？
+		        params = params.split('&'); //拆分成数组
+		        // 声明一个空对象
+		        var a = {};
+		        // 遍历params数组，拆分成二维数组
+		        params.forEach(function(item){
+		            var arr = item.split('=');
+		            // 商品信息写入数组
+		            a[arr[0]] = decodeURI(arr[1]);  
+		        });
+		     $('.goods img').attr({
+                    'data-big':a.imgurl
+
+                });
             $('.goods').lxzoom({width:640,height:489}).addClass('#main_l');
 
             $('.small').on('click','img',function(){
@@ -114,6 +131,7 @@ jQuery(function($){
 				/*
 					大图相关
 				 */
+				
 				$big.empty();
 				$bigImg = $('<img/>').attr('src',bigUrl).appendTo($big);
 

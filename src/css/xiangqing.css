@@ -2,7 +2,7 @@
 * @Author: Marte
 * @Date:   2018-08-21 22:07:31
 * @Last Modified by:   Marte
-* @Last Modified time: 2018-08-23 23:34:17
+* @Last Modified time: 2018-08-25 16:04:25
 */
 /*
     放大镜
@@ -31,13 +31,15 @@
 #search{width:550px;height:82px;margin-top:27px;margin-left:125px;}
 #mall{margin-top:27px;width:212px;height:82px;}
 #logo .input-group{width:550px;height:36px;border:1px solid #F8F8F8;}
-#baobei{background-color:#F8F8F8;}
-#sousuo{background-color:#F15C18;}
+#baobei{background-color:#F8F8F8;height:50px;}
+#bb{height:50px;}
+#sousuo{background-color:#F15C18;height:50px;}
 #hot{height:35px;width:550px;margin-bottom:12px;}
 #hot li{float:left;height:35px;line-height: 35px;font-size: 14px;padding:0 5px;}
 #hot a{display:block;color:#ccc;}
 #hot span{border-right:1px solid #ccc;padding-right:5px;}
 #mall a{color:black;}
+#car #gocar{color:red;}
 #mall li{height:36px;border:1px solid #ccc;float:left;font-size: 16px;border:1px solid #F0F0F0;}
 #mymall{width:224px;position:absolute;right:281px;top:103px;z-index: 999;text-align: center;background-color: #fff;}
 #mymall li{margin-left:30px;border:0 none;}
@@ -45,25 +47,24 @@
 #mymall_t{height:100px;}
 #mymall_b{width:224px;height:150px;}
 .mm:hover #mymall{display:block;}
-#car{width:336px;position:absolute;right:113px;top:103px;z-index: 999;text-align: center;background-color:#000;border:1px solid #ccc;}
+#car{width:336px;position:absolute;right:113px;top:103px;z-index: 999;text-align: center;background-color:#ccc;border:1px solid #ccc;}
 #car img {
     display:block;
         width: 126px;
     height:60px;
     }
-    #car .totals{color:red;line-height: 50px;text-align: right;padding-right:20px;}
+#car .totals{color:red;line-height:25px;text-align: right;padding-right:20px;height:25px;position:absolute;top:149px;width:334px;background-color: #ccc;}
  .car:hover #car{display:block;}
 .bai{color:#fff;}
 #car li{position:relative;height:100px;width:336px;}
-#car .btn-close{position:absolute;top:0;right:0;padding:5px;color:blue;}
+#car .btn-close{position:absolute;top:0px;right:0;margin-right: 5px;color:blue;}
 #car .btn-close:hover{color:#fff;}
-#car .tl{display:block;}
-#car .tl{display:block;}
+#car .tl{display:block;margin-right: 23px;}
 #goodslist img {
         width: 200px;
     }
 .car:hover #car{display:block;}
-#car_t{height:50px;border-bottom:1px solid #ccc;}
+#car_t{height:50px;border-bottom:1px solid #fff;}
 #nav{height:41px;line-height: 41px;font-size: 16px;text-align: center;border-bottom:1px solid red;}
 #nav .all{width:172px;height:41px;background-color:#F15C18;color:#fff;}
 #nav span{color:#F15C18;}
@@ -77,6 +78,9 @@
 #main .containe{height:504px;}
 #main_l{width:360px;height:490px;}
 .goods{width:360px;height:360px;}
+#car #goods{height:80px;background-color: #ccc;}
+#goods li{font-size: 14px;}
+#goods span{display:block;width:50px;float:left;}
 .small{width:352px;height:130px;border:1px solid #ccc;position:relative;}
 .small img{display:block; width:70px;height:72px;float:left;border:1px solid #ccc;}
 .small a{display:block;height:40px;width:352px;background-color:#4a0c0cde;color:red;position:absolute;left:0;bottom:4px;text-decoration: none;line-height: 40px;font-size: 16px;text-align: center;}
@@ -84,18 +88,17 @@
 form>div{height:50px;width:640px;margin-top:2px;line-height: 30px;}
 form span{display:block; height:30px;width:80px;float:left;text-align: center;font-size: 16px;}
 .span li{height:30px;width:80px;float:left;text-align:center;}
-.span li>span{display:block;width:80px;height:30px;border:1px solid #ccc;}
+.bor{border:1px solid #ccc;}
+.span>li>span{display:block;width:100px;height:30px;border:1px solid #ccc;}
 .span .price{font-size: 20px;}
 .price i{font-size: 12px;}
-button{width:80px;height:50px;}
 .qty{height:30px;margin-top:12px;}
 #qty{width:80px;height:30px;text-align: center;}
-.buy{padding-left:70px;width:570px;}
-.buy button{margin-right:43px;width:150px;}
 .fuwu{margin:0 20px;}
 .xianjia{background-color: #F7E9D0;}
 .span a{text-decoration: none;}
-.liji{background-color:#F05D17;}
+.span .liji{height:30px;width:100px;background-color:#F05D17;margin-left: 79px;}
+#addcar{height:30px;width:100px;background-color: #F05D17;margin-left:60px;}
 #right{width:200px;height:489px;}
 #right .containe{padding-left:20px;}
 .chu{border-bottom:1px solid #ccc;background-color: #F2F2F2;margin-top:5px;width:130px;height:30px;line-height: 30px;}
@@ -124,7 +127,6 @@ button{width:80px;height:50px;}
 .zx{padding-left: 47px;}
 textarea{min-height: 300px;width:877px;}
 .tex{padding-left:48px;}
-
 #baozheng img{height:82px;display:block;}
 #baozheng .containe{height:84px;padding:0 92px;}
 #baozheng li{height:84px;float:left;}
